@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="en-US">
+	<head>
+		<!-- Metadata. -->
+		<meta http-equiv="Content-Type" charset="UTF-8" content="text/html; charset=UTF-8" />
+		<meta content="navigation, school" name="keywords" />
+		<meta content="initial-scale=1, height=device-height, width=device-width" name="viewport" />
+		
+		<!-- Title and description. -->
+		<title>Navigation</title>
+		<meta content="An app for navigating a school." name="description" />
+		
+		<!-- Internal stylesheet. -->
+		<style>
+			* {
+				box-sizing:border-box;
+				height:fit-content;
+				width:fit-content;
+			}
+			
+			body, html {
+				height:100%;
+				width:100%;
+			}
+			
+			.auto-margins {
+				margin-right:auto;
+				margin-left:auto;
+			}
+			
+			div.page {
+				border:1px solid black;
+				padding:0.5em;
+				margin:1em;
+				width:100%;
+			}
+			
+			div.page:empty {
+				content-visibility:hidden;
+				visibility:hidden;
+				display:none;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="auto-margins">
+			<h1 class="auto-margins">Navigation</h1>
+			
+			<div class="auto-margins page">
+				<h2>How To Use</h2>
+				<p>
+					To use the <i>Navigation</i> application, simply input your current location
+					then your destination.
+				</p>
+				
+				<p>
+					In addition to giving you the next 
+				</p>
+			</div>
+			
+			<div class="auto-margins page">
+				<h2>Input</h2>
+				
+				<div class="auto-margins">
+					<label for="startpoint">Enter your current location:</label>
+					<select id="startpoint">
+						<option value=""></option>
+						
+						<optgroup label="Wing A">
+							<option value="A100">A100</option>
+							<option value="A101">A101</option>
+							<option value="A200">A200</option>
+							<option value="&lt;insert code here&gt;">Media Center</option>
+						</optgroup>
+						
+						<optgroup label="Wing B">
+							<option value="B100">A100</option>
+							<option value="B200">A200</option>
+							<option value="B300">A300</option>
+							<option value="&lt;insert code here&gt;">(The Only) Bathroom (That Exists)</option>
+						</optgroup>
+					</select>
+					
+					<br />
+					
+					<label for="endpoint">Enter your destination:</label>
+					<select id="endpoint">
+						<option value=""></option>
+						
+						<optgroup label="Wing A">
+							<option value="A100">A100</option>
+							<option value="A101">A101</option>
+							<option value="A200">A200</option>
+							<option value="&lt;insert code here&gt;">Media Center</option>
+						</optgroup>
+						
+						<optgroup label="Wing B">
+							<option value="B100">A100</option>
+							<option value="B200">A200</option>
+							<option value="B300">A300</option>
+							<option value="&lt;insert code here&gt;">(The Only) Bathroom (That Exists)</option>
+						</optgroup>
+					</select>
+					
+					<br />
+					
+					<button onclick="calculate_directions();">Recalculate Directions</button>
+				</div>
+			</div>
+			
+			<div class="auto-margins page" id="directions"></div>
+			
+			<script>
+				// Function to calculate and relate the directions.
+				function calculate_directions() {
+					const output = document.getElementById("directions");
+					if(output == null) return;
+					
+					output.innerHTML += "<h2>Directions</h2>";
+					output.innerHTML += "<p>Directions calculated.</p>";
+				}
+			</script>
+		</div>
+	</body>
+</html>
