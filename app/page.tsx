@@ -1,23 +1,34 @@
-import { Edge, Graph, alg } from "graphlib";
-import data from "../public/data.json";
+import { Graph } from "graphlib";
+import { Hallway, Room } from "../lib/hallway";
 
 export default function Home() {
   const graph = new Graph({directed: false});
   
-  Array(12).fill(0).map((_, i) => graph.setNode((i + 1).toString()));
+  const roomOne: Room = {
+    floor: 1,
+    number: 1,
+    wing: "A"
+  }
+  const roomTwo: Room = {
+    floor: 1,
+    number: 2,
+    wing: "A"
+  }
+  const roomThree: Room = {
+    floor: 1,
+    number: 3,
+    wing: "A"
+  }
 
-  graph.setEdge("1", "3", { distance: 1 });
-  graph.setEdge("2", "3", { distance: 1 });
-  graph.setEdge("3", "4", { distance: 1 });
-  
-  function weight(e: Edge) { return graph.edge(e); }
-
-  const result = alg.dijkstra(graph, "1");
-  console.log(result);
+  let hallway: Hallway = new Hallway(0, 10, []);
+  hallway.addRoom(roomOne);
+  hallway.addRoom(roomThree);
+  hallway.addRoom(roomTwo);
+  hallway.sortRooms();
 
   return (
     <main>
-      These are the nodes: {JSON.stringify(graph.edges())}
+      These are the nodes: {JSON.stringify(hallway.rooms)}
     </main>
   );
 }
