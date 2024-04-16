@@ -4,14 +4,17 @@ export interface Room {
     wing: string
 }
 
-
-// TODO: In order to successfully generate a path between two rooms, some sort of direction field must be given to the hallways and staircases.
-export interface Connection {
-    from: Hallway | Staircase,
-    to: Hallway | Staircase
+function getRoomStringID({number, wing}: Room): string {
+    return `${wing}${number}`;
 }
 
-export interface Staircase {};
+
+// TODO: In order to successfully generate a path between two rooms, some sort of direction field must be given to the hallways.
+export interface Connection {
+    from: Hallway,
+    to: Hallway
+}
+
 
 export interface Hallway {
     lowestNumber: number,
@@ -40,5 +43,13 @@ export class Hallway {
     }
     get getRooms() {
         return this.rooms;
+    }
+    get hallwayID() {
+        // Merge all of the room ID's into one big string
+        let hallwayID = "";
+        for (let room of this.rooms) {
+            hallwayID += getRoomStringID(room);
+        }
+        return Buffer.from(hallwayID).toString("base64");
     }
 }
