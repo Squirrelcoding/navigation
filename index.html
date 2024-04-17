@@ -11,47 +11,24 @@
 		<meta content="navigation, school" name="keywords" />
 		<meta content="initial-scale=1, height=device-height, width=device-width" name="viewport" />
 		
-		<!-- Title and description. -->
+		<!-- Title, description, and favicon. -->
 		<title>Navigation</title>
 		<meta content="An app for navigating a school." name="description" />
+		<meta href="./app/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+		<meta href="./app/favicon.ico" type="image/x-icon" rel="icon" />
 		
-		<!-- Internal stylesheet. -->
-		<style>
-			* {
-				box-sizing:border-box;
-				height:fit-content;
-				width:fit-content;
-			}
-			
-			body, html {
-				height:100%;
-				width:100%;
-			}
-			
-			.auto-margins {
-				margin-right:auto;
-				margin-left:auto;
-			}
-			
-			div.page {
-				border:1px solid black;
-				padding:0.5em;
-				margin:1em;
-				width:100%;
-			}
-			
-			div.page:empty {
-				content-visibility:hidden;
-				visibility:hidden;
-				display:none;
-			}
-		</style>
+		<!-- External stylesheets. -->
+		<link href="./app/globals.css" rel="stylesheet" />
+		<link href="./app/site.css" rel="stylesheet" />
 	</head>
 	
 	<body>
-		<div class="auto-margins">
+		<header class="auto-margins">
 			<h1 class="auto-margins">Navigation</h1>
-			
+			<img href="./app/favicon.ico" type="image/x-icon" alt="[Website icon.]" />
+		</header>
+		
+		<main class="auto-margins">
 			<div class="auto-margins page">
 				<h2>How To Use</h2>
 				<p>
@@ -115,17 +92,17 @@
 			</div>
 			
 			<div class="auto-margins page" id="directions"></div>
-			
-			<script>
-				// Function to calculate and relate the directions.
-				function calculateDirections() {
-					const output = document.getElementById("directions");
-					if(output == null) return;
-					
-					output.innerHTML += "<h2>Directions</h2>";
-					output.innerHTML += "<p>Directions calculated.</p>";
-				}
-			</script>
-		</div>
+		</main>
+		
+		<script>
+			// Function to calculate and relate the directions.
+			function calculateDirections() {
+				const output = document.getElementById("directions");
+				if(output == null) return;
+				
+				output.innerHTML += "<h2>Directions</h2>";
+				output.innerHTML += "<p>Directions calculated.</p>";
+			}
+		</script>
 	</body>
 </html>

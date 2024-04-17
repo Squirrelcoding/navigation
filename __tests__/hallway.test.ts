@@ -1,5 +1,5 @@
 import test, { describe } from "node:test";
-import { Hallway } from "../lib/structures";
+import { Hallway } from "../lib/hallway";
 import { expect } from "vitest";
 
 describe("Hallway", () => {
