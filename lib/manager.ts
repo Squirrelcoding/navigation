@@ -7,9 +7,6 @@ interface HallwayStep {
     direction: "increasing" | "decreasing",
 }
 
-function weight(e: any) { return 1; }
-
-
 export interface Manager {
     _graph: Graph,
     hallways: Hallway[],
