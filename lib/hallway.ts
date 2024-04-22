@@ -12,6 +12,7 @@ function getRoomStringID({number, wing}: Room): string {
 // TODO: In order to successfully generate a path between two rooms, some sort of direction field must be given to the hallways.
 export interface Connection {
     from: Hallway,
+    direction: "increasing" | "decreasing",
     to: Hallway
 }
 
