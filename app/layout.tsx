@@ -1,7 +1,9 @@
+import {Metadata, Viewport} from "next";
 import {NextFont} from "next/dist/compiled/@next/font";
-import {Metadata} from "next";
 import {Inter} from "next/font/google";
 
+
+import Page from "../components/page";
 import "./globals.css";
 import "./site.css";
 
@@ -23,9 +25,30 @@ const metadata:Metadata = {
 	},
 	title: "Navigation"
 };
+const viewport:Viewport = {
+	height: "device-height",
+	width: "device-width"
+};
 const inter:NextFont = Inter({subsets: ["latin"]});
 
 
+
+
+function HomeLayout() {
+	return <>
+		<Page>
+			<h2>How To Use</h2>
+			<p>
+				To use the <i>Navigation</i> application, simply input your current location
+				then your destination.
+			</p>
+		</Page>
+		
+		<Page>
+			<h2>Input</h2>
+		</Page>
+	</>
+}
 
 
 
@@ -48,18 +71,11 @@ function RootLayout({children}:Readonly<{children:React.ReactNode}>) {
 
 
 
-function Page({children}:Readonly<{children:React.ReactNode}>) {
-	return <>
-		<div className="auto-margins page">
-			{children}
-		</div>
-	</>;
-}
-
-
-
 
 
 export default RootLayout;
 
-export {metadata, Page};
+export {
+	HomeLayout,
+	metadata
+};

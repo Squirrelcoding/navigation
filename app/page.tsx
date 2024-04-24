@@ -1,13 +1,7 @@
-import {Hallway, Room} from "../lib/hallway";
-import {Page} from "./layout"
-import {Graph} from "graphlib";
+import HomeLayout from "./layout";
 
 
 
 
 
-export default function Home() {
-	return <>
-		//
-	</>;
-}
+export default HomeLayout;
