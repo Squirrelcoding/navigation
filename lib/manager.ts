@@ -36,23 +36,33 @@ export class Manager {
         this._graph = new Graph({
             directed: false
         });
-        this._graph.setNode("1");
-        this._graph.setNode("2");
-        this._graph.setNode("3");
-        this._graph.setNode("4");
-        this._graph.setNode("5");
-        this._graph.setEdge("1", "2", { direction: "right" });
-        this._graph.setEdge("2", "3", { direction: "up" });
-        this._graph.setEdge("3", "4", { direction: "left" });
-        this._graph.setEdge("3", "5", {direction: "right"});
+        this._graph.setNode("A", {
+            rooms: ["1A", "2A"]
+        });
+        this._graph.setNode("B", {
+            rooms: ["1B", "2B"]
+        });
+        this._graph.setNode("C", {
+            rooms: ["1C", "2C"]
+        });
+        this._graph.setNode("D", {
+            rooms: ["1D", "2D"]
+        });
+        this._graph.setNode("E", {
+            rooms: ["1E", "2E"]
+        });
+        this._graph.setEdge("A", "B", { direction: "right" });
+        this._graph.setEdge("B", "C", { direction: "up" });
+        this._graph.setEdge("C", "D", { direction: "left" });
+        this._graph.setEdge("C", "E", {direction: "right"});
     }
 
     getRoute(from: string, to: string): string[] {
 
         // Loop through the hallways and find the room that matches `from` room
     
-        // let fromHallway = findRoomInHallways(from, this.hallways);
-        // let toHallway = findRoomInHallways(to, this.hallways);
+        let fromHallway = findRoomInHallways(from, this.hallways);
+        let toHallway = findRoomInHallways(to, this.hallways);
     
         // Generate a path between the two hallways
     
@@ -70,7 +80,10 @@ export class Manager {
                 break;
             }
         }
+
         steps.push(from);
+
+        // Code for turning given directions into readable directions such as "left" and "right."
         let directions: string[] = [];
         for (let i = 0; i < steps.length - 1; i++) {
             let from = steps[i];
